@@ -16,6 +16,11 @@ function reducer(state, action) {
             return { ...state, number: state.number + 2 }
         case 'login':
             return { ...state, user: { name: action.payload } }
+        case 'numberMult7':
+            return { ...state, number: state.number * 7 }
+        case 'numberDiv':
+            let numberResult = parseInt(state.number / action.payload)
+            return { ...state, number: numberResult }
         default:
             return state
     }
@@ -43,6 +48,8 @@ const UseReducer = (props) => {
                 <div>
                     <button className="btn" onClick={() => dispatch({ type: 'login', payload: 'Wilson' })}>Login</button>
                     <button className="btn" onClick={() => dispatch({ type: 'numberAdd2' })}>+2</button>
+                    <button className="btn" onClick={() => dispatch({ type: 'numberMult7' })}>X7</button>
+                    <button className="btn" onClick={() => dispatch({ type: 'numberDiv', payload: 25 })}>/25</button>
                 </div>
             </div>
         </div>
